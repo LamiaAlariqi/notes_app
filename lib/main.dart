@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app/view/notes_view.dart';
 
 void main(){
   runApp(NotesApp());
@@ -12,9 +13,10 @@ NotesApp({super.key});
     return MaterialApp( 
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        brightness: Brightness.dark
+        fontFamily: 'Poppins',
+        brightness: Brightness.dark,
       ),
-      home: Scaffold(),
+      home:const NoteView(),
 
     );
 }}
