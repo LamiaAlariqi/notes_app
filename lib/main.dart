@@ -1,29 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:notes_app/Wegets/constants.dart';
+import 'package:notes_app/addNotescubit/add_notes_cubit.dart';
 import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/view/notes_view.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-void main() async{
+void main() async {
   await Hive.initFlutter();
 
- await Hive.openBox(knoteBox);
- Hive.registerAdapter(NoteModelAdapter());
+  await Hive.openBox(knoteBox);
+  Hive.registerAdapter(NoteModelAdapter());
   runApp(NotesApp());
 }
 
 class NotesApp extends StatelessWidget {
-NotesApp({super.key});
+  NotesApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp( 
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        fontFamily: 'Poppins',
-        brightness: Brightness.dark,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => AddNotesCubit(),
+        ),
+       
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          fontFamily: 'Poppins',
+          brightness: Brightness.dark,
+        ),
+        home: const NoteView(),
       ),
-      home:const NoteView(),
-
     );
-}}
+  }
+}
