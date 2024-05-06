@@ -14,6 +14,15 @@ class AddNotesCubit extends Cubit<AddNotesState> {
     try{
    var notesBox=Hive.box<NoteModel>(knoteBox);
    await notesBox.add(note);
+    
+bool isBoxEmpty = notesBox.isEmpty;
+if (isBoxEmpty) {
+  print('الصندوق فارغ');
+} else {
+  print('الصندوق غير فارغ');
+  print(notesBox.length);
+}
+ 
    emit(AddNotesSuccess());
     }
     catch(e){
