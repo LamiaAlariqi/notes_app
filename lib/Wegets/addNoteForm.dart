@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes_app/Wegets/colorslistview.dart';
 import 'package:notes_app/Wegets/customButton.dart';
 import 'package:notes_app/Wegets/customTextfield.dart';
 import 'package:notes_app/addNotescubit/add_notes_cubit.dart';
@@ -48,6 +49,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
           const SizedBox(
             height: 32,
           ),
+        const  colorslistview (),
           BlocBuilder<AddNotesCubit,AddNotesState>(
 builder: (context, state) {
               return custombutton(
@@ -79,3 +81,16 @@ builder: (context, state) {
     );
   }
 }
+
+class coloritem extends StatelessWidget {
+  const coloritem({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const CircleAvatar(
+      radius: 38,
+      backgroundColor: Colors.blue,
+    );
+  }
+}
+
