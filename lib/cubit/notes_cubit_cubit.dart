@@ -19,7 +19,7 @@ if (isBoxEmpty) {
   print('****************الصندوق غير فارغ');
   print(notes!.length);
 }
- 
+emit(NotesSuccess()); 
   
   }
   

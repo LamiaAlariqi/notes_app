@@ -3,4 +3,4 @@ sealed class NotesCubitState {
 }
 
  class NotesCubitInitial extends NotesCubitState {}
-
+ class NotesSuccess extends NotesCubitState{}
