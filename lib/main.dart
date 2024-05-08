@@ -7,16 +7,18 @@ import 'package:notes_app/view/notes_view.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() async {
+   WidgetsFlutterBinding.ensureInitialized(); 
   await Hive.initFlutter();
    Hive.registerAdapter(NoteModelAdapter()); //مهم يكون قيل الي تحته 
   await Hive.openBox<NoteModel>(knoteBox);
   
     Bloc.observer= SimpleBlocObserver();
   runApp(NotesApp());
+  
 }
 
 class NotesApp extends StatelessWidget {
-  NotesApp({super.key});
+ const NotesApp({super.key});
 
   @override
   Widget build(BuildContext context) {
