@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes_app/Wegets/EditNoteColorlist.dart';
+import 'package:notes_app/Wegets/colorslistview.dart';
+import 'package:notes_app/Wegets/constants.dart';
 import 'package:notes_app/Wegets/customTextfield.dart';
 import 'package:notes_app/Wegets/customeappbar.dart';
 import 'package:notes_app/cubit/notes_cubit_cubit.dart';
@@ -47,9 +50,10 @@ class _EditnodeviewbodyState extends State<Editnodeviewbody> {
           customTextfield(hint: widget.notes.subtitle,maxline: 5,
            onChanged: (value){
             content=value;
-          },
-          
-          )
+          },  
+          ),
+           SizedBox(height: 16,),
+           EditNoteColorslist(notes: widget.notes,)
         ],
       ),
     );

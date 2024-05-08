@@ -49,6 +49,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
           const SizedBox(
             height: 32,
           ),
+          
         const  colorslistview (),
           BlocBuilder<AddNotesCubit,AddNotesState>(
 builder: (context, state) {
@@ -82,15 +83,4 @@ builder: (context, state) {
   }
 }
 
-class coloritem extends StatelessWidget {
-  const coloritem({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const CircleAvatar(
-      radius: 38,
-      backgroundColor: Colors.blue,
-    );
-  }
-}
 
